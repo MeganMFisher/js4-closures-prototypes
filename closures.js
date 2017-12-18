@@ -117,19 +117,23 @@ function outer() {
   function counterFactory(value) {
   
     // Code here.
-  
-  
+    
     return {
-
+      inc: function(){
+        return ++value;  //val += 1
+      },
+      dec: function(){
+        return --value;  //val -= 1
+      }
     }
   }
   
   
   counter = counterFactory(10);
-  // counter.inc() // 11
-  // counter.inc() // 12
-  // counter.inc() // 13
-  // counter.dec() // 12
+  counter.inc() // 11
+  counter.inc() // 12
+  counter.inc() // 13
+  counter.dec() // 12
   
   
   
@@ -156,10 +160,14 @@ function outer() {
     var welcomeText = 'You\'re doing awesome, keep it up ';
   
     // code message function here.
+
+    function message() {
+      return `${welcomeText}${firstname} ${lastname}.`;
+    }
   
   
     //Uncommment this to return the value of your message function
-    //return message;
+    return message;
   
   }
   
@@ -198,6 +206,9 @@ function outer() {
     // outside our lexical scope
     return {
       // Code here.
+      publicMethod: function() {
+        return privateMethod()
+      }
     };
   
   })();
@@ -217,6 +228,12 @@ function outer() {
 
     return {
       // Code here
+      addToSecret: function(num) {
+        return secret += num
+      },
+      takeAwayFromSecret: function(num) {
+        return secret -= num
+      }
     }
   }
   
@@ -243,7 +260,7 @@ function outer() {
    */
   
   function timeOutCounter() {
-    for (var i = 0; i <= 5; i++) {
+    for (let i = 0; i <= 5; i++) {
       setTimeout(function() {
           console.log(i)
       }, i * 1000)
@@ -251,3 +268,15 @@ function outer() {
   }
   timeOutCounter();
   
+
+  // function timeOutCounter() {
+  //   for (var i = 0; i <= 5; i++) {
+  //     setTimeout(function(i) { //pass in i
+  //       //CODE HERE
+  //       return function(){     //return function
+  //         console.log(i)
+  //       }
+  //   }(i), i * 1000)   //add (i) right after parenthesis at the end of the function so the function knows what i is on the next iteration
+  //   }
+  // }
+  // timeOutCounter();
