@@ -280,3 +280,37 @@ function outer() {
   //   }
   // }
   // timeOutCounter();
+
+
+  // function timeOutCounter() {
+    
+  //   var closure = function(i) {
+  //     return function() {
+  //       console.log(i);
+  //     };
+  //   };
+ 
+  //   function timeOutCounter() {
+  //     for (var i=0; i <= 5; i++){
+  //       setTimeout(closure(i), i * 1000);
+  //     }
+  //   }
+ 
+  // timeOutCounter();
+  // }
+
+
+  // function timeOutCounter() {
+    
+  //    var closure = function(j) {
+  //      setTimeout(_=>console.log(j), j * 1000);
+  //    };
+  
+  //    function timeOutCounter() {
+  //      for (var i=0; i <= 5; i++){
+  //        closure(i)
+  //      }
+  //    }
+  
+  //    timeOutCounter();
+  //  }
